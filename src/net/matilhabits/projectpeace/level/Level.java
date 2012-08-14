@@ -7,11 +7,11 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
-import net.matilhabits.projectpeace.Game;
 import net.matilhabits.projectpeace.entities.Entity;
 import net.matilhabits.projectpeace.entities.Player;
-import net.matilhabits.projectpeace.gfx.Screen;
 import net.matilhabits.projectpeace.level.tiles.Tile;
+import net.matilhabits.starlite.Game;
+import net.matilhabits.starlite.display.Display;
 
 public class Level {
 	public int width;
@@ -30,7 +30,7 @@ public class Level {
 		this.entities = new ArrayList<Entity>();
 	}
 	
-	public void renderBackground(Screen screen) {
+	public void renderBackground(Display screen) {
 		int xo = screen.xOffset / 8;
 		int yo = screen.yOffset / 8;
 		int width = (screen.width + 15) / 8;
@@ -43,7 +43,7 @@ public class Level {
 		}
 	}
 	
-	public void renderSprites(Screen screen) {
+	public void renderSprites(Display screen) {
 		for (Entity entity : this.entities) {
 			if ((entity.x >= (screen.xOffset - 16)) && (entity.x < (screen.xOffset + screen.width + 16)) && (entity.y >= (screen.yOffset - 16)) && (entity.y < (screen.yOffset + screen.height))) {
 				entity.render(screen);

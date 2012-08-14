@@ -1,4 +1,4 @@
-package net.matilhabits.projectpeace.gfx;
+package net.matilhabits.starlite.display;
 
 public class Sprite {
 	public int x;

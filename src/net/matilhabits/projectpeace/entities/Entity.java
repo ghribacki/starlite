@@ -1,7 +1,7 @@
 package net.matilhabits.projectpeace.entities;
 
-import net.matilhabits.projectpeace.gfx.Screen;
 import net.matilhabits.projectpeace.level.Level;
+import net.matilhabits.starlite.display.Display;
 
 public abstract class Entity {
 	public int x;
@@ -16,7 +16,7 @@ public abstract class Entity {
 		this.level = level;
 	}
 	
-	public abstract void render(Screen screen);
+	public abstract void render(Display screen);
 	
 	public abstract void update();
 	

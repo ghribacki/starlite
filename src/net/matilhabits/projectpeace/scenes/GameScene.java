@@ -1,22 +1,22 @@
 package net.matilhabits.projectpeace.scenes;
 
-import net.matilhabits.projectpeace.Game;
-import net.matilhabits.projectpeace.InputHandler;
 import net.matilhabits.projectpeace.entities.Backdrop;
 import net.matilhabits.projectpeace.entities.Player;
 import net.matilhabits.projectpeace.entities.TinyPerson;
-import net.matilhabits.projectpeace.gfx.Color;
-import net.matilhabits.projectpeace.gfx.Screen;
 import net.matilhabits.projectpeace.level.Dialog;
 import net.matilhabits.projectpeace.level.Level;
-import net.matilhabits.projectpeace.sound.SoundEffect;
+import net.matilhabits.starlite.Game;
+import net.matilhabits.starlite.audio.Audio;
+import net.matilhabits.starlite.display.Color;
+import net.matilhabits.starlite.display.Display;
+import net.matilhabits.starlite.input.Input;
 
 public class GameScene extends Scene {
 	private Level level;
 	private Player player;
 	//private BackgroundNoise bgNoise;
 
-	public GameScene(Game game, InputHandler input) {
+	public GameScene(Game game, Input input) {
 		super(game, input);
 		this.level = new Level(null);
 
@@ -280,7 +280,7 @@ public class GameScene extends Scene {
 			}
 			
 			if (this.player.receivedMessage != null) {
-				SoundEffect.talk.play();
+				Audio.talk.play();
 				String[] messages = this.player.receivedMessage.split("#");
 				Dialog nextDialog = null;
 				for (int i = messages.length - 1; i >= 0; i--) {
@@ -292,7 +292,7 @@ public class GameScene extends Scene {
 		}
 	}
 
-	public void render(Screen screen) {
+	public void render(Display screen) {
 		screen.clear(17);
 		
 		int xScroll = this.player.x - (screen.width/2);

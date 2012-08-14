@@ -1,14 +1,14 @@
 package net.matilhabits.projectpeace.scenes;
 
-import net.matilhabits.projectpeace.Game;
-import net.matilhabits.projectpeace.InputHandler;
-import net.matilhabits.projectpeace.gfx.Screen;
-import net.matilhabits.projectpeace.sound.SoundEffect;
+import net.matilhabits.starlite.Game;
+import net.matilhabits.starlite.audio.Audio;
+import net.matilhabits.starlite.display.Display;
+import net.matilhabits.starlite.input.Input;
 
 public class PauseScene extends MenuScene {
 	private Scene parent;
 	
-	public PauseScene(Game game, InputHandler input, Scene parent) {
+	public PauseScene(Game game, Input input, Scene parent) {
 		super(game, input);
 		this.parent = parent;
 	}
@@ -32,11 +32,11 @@ public class PauseScene extends MenuScene {
 					break;
 				default:
 			}
-			SoundEffect.enter.play();
+			Audio.enter.play();
 		}
 	}
 
-	public void render(Screen screen) {
+	public void render(Display screen) {
 		screen.clear(1);
 		screen.setOffset(0, 0);
 		//GameTitle.render(screen, 80, 4);

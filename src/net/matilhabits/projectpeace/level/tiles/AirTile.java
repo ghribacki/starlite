@@ -1,7 +1,7 @@
 package net.matilhabits.projectpeace.level.tiles;
 
-import net.matilhabits.projectpeace.gfx.Screen;
 import net.matilhabits.projectpeace.level.Level;
+import net.matilhabits.starlite.display.Display;
 
 public class AirTile extends Tile {
 
@@ -9,7 +9,7 @@ public class AirTile extends Tile {
 		super(id);
 	}
 
-	public void render(Screen screen, Level level, int x, int y) {
+	public void render(Display screen, Level level, int x, int y) {
 				
 	}
 

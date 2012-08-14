@@ -1,6 +1,6 @@
-package net.matilhabits.projectpeace.gfx;
+package net.matilhabits.starlite.display;
 
-public class Screen {
+public class Display {
 	public int width;
 	public int height;
 	public int[] pixels;
@@ -11,7 +11,7 @@ public class Screen {
 	public int xOffset;
 	public int yOffset;
 	
-	public Screen(int width, int height, SpriteSheet spriteSheet) {
+	public Display(int width, int height, SpriteSheet spriteSheet) {
 		this.width = width;
 		this.height = height;
 		

@@ -1,7 +1,7 @@
 package net.matilhabits.projectpeace.level.tiles;
 
-import net.matilhabits.projectpeace.gfx.Screen;
 import net.matilhabits.projectpeace.level.Level;
+import net.matilhabits.starlite.display.Display;
 
 public class BlockTile extends Tile {
 
@@ -13,7 +13,7 @@ public class BlockTile extends Tile {
 		this.climbable = climbable;
 	}
 
-	public void render(Screen screen, Level level, int x, int y) {
+	public void render(Display screen, Level level, int x, int y) {
 		boolean up = !level.getTile(x, y - 1).blocks;
 		boolean down = !level.getTile(x, y + 1).blocks;
 		boolean left = !level.getTile(x - 1, y).blocks;

@@ -3,18 +3,18 @@ package net.matilhabits.projectpeace.scenes;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.matilhabits.projectpeace.Game;
-import net.matilhabits.projectpeace.InputHandler;
-import net.matilhabits.projectpeace.gfx.Color;
-import net.matilhabits.projectpeace.gfx.Font;
-import net.matilhabits.projectpeace.gfx.Screen;
-import net.matilhabits.projectpeace.sound.SoundEffect;
+import net.matilhabits.starlite.Game;
+import net.matilhabits.starlite.audio.Audio;
+import net.matilhabits.starlite.display.Color;
+import net.matilhabits.starlite.display.Display;
+import net.matilhabits.starlite.display.Font;
+import net.matilhabits.starlite.input.Input;
 
 public abstract class MenuScene extends Scene {
 	protected final List<String> menuList;
 	protected int selected;
 	
-	public MenuScene(Game game, InputHandler input) {
+	public MenuScene(Game game, Input input) {
 		super(game, input);
 		this.menuList = new ArrayList<String>();
 		this.init();
@@ -28,7 +28,7 @@ public abstract class MenuScene extends Scene {
 			if (this.selected >= this.menuList.size()) {
 				this.selected = 0;
 			}
-			SoundEffect.select.play();
+			Audio.select.play();
 		}
 		
 		if (input.up.clicked) {
@@ -36,12 +36,12 @@ public abstract class MenuScene extends Scene {
 			if (this.selected < 0) {
 				this.selected = this.menuList.size() - 1;
 			}
-			SoundEffect.select.play();
+			Audio.select.play();
 		}
 		
 	}
 	
-	public void renderMenu(Screen screen, int xo, int yo) {
+	public void renderMenu(Display screen, int xo, int yo) {
 		int sequence = 0;
 		
 		for (String item : this.menuList) {

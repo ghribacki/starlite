@@ -1,10 +1,10 @@
 package net.matilhabits.projectpeace;
 
-import net.matilhabits.projectpeace.gfx.Color;
-import net.matilhabits.projectpeace.gfx.Screen;
+import net.matilhabits.starlite.display.Color;
+import net.matilhabits.starlite.display.Display;
 
 public class GameTitle {
-	public static void render(Screen screen, int xo, int yo) {
+	public static void render(Display screen, int xo, int yo) {
 		int width = 11;
 		int height = 2;
 		int xTitleTile = 28;

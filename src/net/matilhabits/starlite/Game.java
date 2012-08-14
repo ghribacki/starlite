@@ -1,4 +1,4 @@
-package net.matilhabits.projectpeace;
+package net.matilhabits.starlite;
 
 import java.awt.BorderLayout;
 import java.awt.Canvas;
@@ -12,18 +12,28 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
-import net.matilhabits.projectpeace.gfx.Color;
-import net.matilhabits.projectpeace.gfx.Font;
-import net.matilhabits.projectpeace.gfx.Screen;
-import net.matilhabits.projectpeace.gfx.SpriteSheet;
 import net.matilhabits.projectpeace.scenes.Scene;
 import net.matilhabits.projectpeace.scenes.TitleScene;
+import net.matilhabits.starlite.display.Color;
+import net.matilhabits.starlite.display.Display;
+import net.matilhabits.starlite.display.Font;
+import net.matilhabits.starlite.display.SpriteSheet;
+import net.matilhabits.starlite.input.Input;
 
+/**
+ * The main component of the engine.
+ * Needs to be extended by the user application to run it.
+ * 
+ * @author ghribacki
+ */
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 	
+	// Defined by the user application:
 	public static final String TITLE = "Project Peace";
 	public static final String VERSION = "LUDUM DARE 23: Day 3";
+	
+	// Resolution shall be static, scale shall be defined by the applet parameters.
 	public static final int WIDTH = 250;
 	public static final int HEIGHT = 150;
 	public static final int SCALE = 2;
@@ -33,8 +43,8 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage screenBuffer;
 	private int[] pixels;
 	private boolean running;
-	private Screen screen;
-	private InputHandler input;
+	private Display display;
+	private Input input;
 	
 	private int[] colors;
 	
@@ -44,7 +54,7 @@ public class Game extends Canvas implements Runnable {
 		this.screenBuffer = new BufferedImage(Game.WIDTH, Game.HEIGHT, BufferedImage.TYPE_INT_RGB);
 		this.pixels = ((DataBufferInt) screenBuffer.getRaster().getDataBuffer()).getData();
 		this.running = false;
-		this.input = new InputHandler(this);
+		this.input = new Input(this);
 		this.colors = new int[256];
 	}
 	
@@ -68,7 +78,7 @@ public class Game extends Canvas implements Runnable {
 		}		
 		
 		try {
-			this.screen = new Screen(Game.WIDTH, Game.HEIGHT, new SpriteSheet(ImageIO.read(Game.class.getResourceAsStream("/spritesheet.png"))));
+			this.display = new Display(Game.WIDTH, Game.HEIGHT, new SpriteSheet(ImageIO.read(Game.class.getResourceAsStream("/spritesheet.png"))));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -139,26 +149,26 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		// Render the current scene.
-		this.scene.render(this.screen);
+		this.scene.render(this.display);
 		
 		if (!this.hasFocus()) {
-			screen.setOffset(0, 0);
+			display.setOffset(0, 0);
 			for (int i = 0; i < 32; i++) {
 				for (int j = 0; j < 3; j++) {
 					if (j > 0) {
-						screen.render(i*8, 126+j*8, 71, Color.get(-1, 0, 9, 2), false);
+						display.render(i*8, 126+j*8, 71, Color.get(-1, 0, 9, 2), false);
 					} else {
-						screen.render(i*8, 133+j*8, 5, Color.get(-1, 0, 1, 2), false);
+						display.render(i*8, 133+j*8, 5, Color.get(-1, 0, 1, 2), false);
 					}
 				}
 			}
-			Font.draw("CLICK TO FOCUS!", screen, 67, 139, Color.get(-1, 0, 0, 44));
+			Font.draw("CLICK TO FOCUS!", display, 67, 139, Color.get(-1, 0, 0, 44));
 		}
 		
 		// Flushes the screen to the buffer.
 		for (int y = 0; y < Game.HEIGHT; y++) {
 			for (int x = 0; x < Game.WIDTH; x++) {
-				int cc = this.screen.pixels[x + y * this.screen.width];
+				int cc = this.display.pixels[x + y * this.display.width];
 				if (cc < 255) {
 					pixels[x + y * Game.WIDTH] = colors[cc];
 				}
@@ -190,6 +200,7 @@ public class Game extends Canvas implements Runnable {
 		this.running = false;
 	}
 	
+	// Maybe remove this one...
 	public static void main(String args[]) {
 		Game game = new Game();
 		Dimension dimension = new Dimension(Game.WIDTH * Game.SCALE, Game.HEIGHT * Game.SCALE);

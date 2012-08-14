@@ -1,4 +1,4 @@
-package net.matilhabits.projectpeace.gfx;
+package net.matilhabits.starlite.display;
 
 public class Color {
 	public static int get(int a, int b, int c, int d) {

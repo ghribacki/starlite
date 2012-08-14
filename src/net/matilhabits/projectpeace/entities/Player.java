@@ -1,12 +1,12 @@
 package net.matilhabits.projectpeace.entities;
 
-import net.matilhabits.projectpeace.InputHandler;
-import net.matilhabits.projectpeace.gfx.Color;
-import net.matilhabits.projectpeace.gfx.Screen;
 import net.matilhabits.projectpeace.level.Level;
+import net.matilhabits.starlite.display.Color;
+import net.matilhabits.starlite.display.Display;
+import net.matilhabits.starlite.input.Input;
 
 public class Player extends Entity {
-	private InputHandler input;
+	private Input input;
 	private boolean climbing;
 	private boolean flip;
 	private boolean walking;
@@ -19,14 +19,14 @@ public class Player extends Entity {
 	
 	public String receivedMessage;
 	
-	public Player(Level level, InputHandler input) {
+	public Player(Level level, Input input) {
 		super(level);
 		this.input = input;
 		this.width = 5;
 		this.receivedMessage = null;
 	}
 
-	public void render(Screen screen) {
+	public void render(Display screen) {
 		int flipPix = 0;
 		if (this.flip) {
 			flipPix = 1;

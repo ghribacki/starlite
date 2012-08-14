@@ -1,23 +1,23 @@
 package net.matilhabits.projectpeace.scenes;
 
-import net.matilhabits.projectpeace.Game;
-import net.matilhabits.projectpeace.InputHandler;
-import net.matilhabits.projectpeace.gfx.Screen;
 import net.matilhabits.projectpeace.level.Dialog;
+import net.matilhabits.starlite.Game;
+import net.matilhabits.starlite.display.Display;
+import net.matilhabits.starlite.input.Input;
 
 public abstract class Scene {
 	protected Game game;
-	protected InputHandler input;
+	protected Input input;
 	protected Dialog dialog;
 	
-	public Scene(Game game, InputHandler input) {
+	public Scene(Game game, Input input) {
 		this.game = game;
 		this.input = input;
 	}
 	
 	public abstract void update();
 	
-	public abstract void render(Screen screen);
+	public abstract void render(Display screen);
 	
 	public void setDialog(Dialog dialog) {
 		this.dialog = dialog;

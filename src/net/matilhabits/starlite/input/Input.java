@@ -1,11 +1,14 @@
-package net.matilhabits.projectpeace;
+package net.matilhabits.starlite.input;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InputHandler implements KeyListener {
+import net.matilhabits.starlite.Game;
+
+
+public class Input implements KeyListener {
 	public class Key {
 		public int presses, absorbs;
 		public boolean down, clicked;
@@ -44,7 +47,7 @@ public class InputHandler implements KeyListener {
 	public Key magicLeft = new Key();
 	public Key magicRight = new Key();
 	
-	public InputHandler(Game game) {
+	public Input(Game game) {
 		game.addKeyListener(this);
 	}
 	

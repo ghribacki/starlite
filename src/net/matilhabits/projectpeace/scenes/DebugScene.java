@@ -1,15 +1,15 @@
 package net.matilhabits.projectpeace.scenes;
 
-import net.matilhabits.projectpeace.Game;
-import net.matilhabits.projectpeace.InputHandler;
-import net.matilhabits.projectpeace.gfx.Color;
-import net.matilhabits.projectpeace.gfx.Font;
-import net.matilhabits.projectpeace.gfx.Screen;
+import net.matilhabits.starlite.Game;
+import net.matilhabits.starlite.display.Color;
+import net.matilhabits.starlite.display.Display;
+import net.matilhabits.starlite.display.Font;
+import net.matilhabits.starlite.input.Input;
 
 public class DebugScene extends Scene {
 	private String inputString = "";
 	
-	public DebugScene(Game game, InputHandler input) {
+	public DebugScene(Game game, Input input) {
 		super(game, input);
 	}
 
@@ -47,7 +47,7 @@ public class DebugScene extends Scene {
 		}
 	}
 
-	public void render(Screen screen) {
+	public void render(Display screen) {
 		screen.clear(0);
 		Font.draw("   "+Game.TITLE, screen, 1, 1, Color.get(0, 0, 0, 800));
 		Font.draw("     "+Game.VERSION, screen, 1, 9, Color.get(0, 0, 0, 500));

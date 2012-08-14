@@ -1,8 +1,8 @@
 package net.matilhabits.projectpeace.entities;
 
-import net.matilhabits.projectpeace.gfx.Color;
-import net.matilhabits.projectpeace.gfx.Screen;
 import net.matilhabits.projectpeace.level.Level;
+import net.matilhabits.starlite.display.Color;
+import net.matilhabits.starlite.display.Display;
 
 public class TinyPerson extends Entity {
 	private boolean flip;
@@ -19,7 +19,7 @@ public class TinyPerson extends Entity {
 		this.message = message;
 	}
 
-	public void render(Screen screen) {
+	public void render(Display screen) {
 		int spriteDelta = 0;
 		if (this.walking) {
 			if (this.updates < 20) {

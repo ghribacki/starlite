@@ -1,10 +1,10 @@
 package net.matilhabits.projectpeace.level;
 
-import net.matilhabits.projectpeace.gfx.Color;
-import net.matilhabits.projectpeace.gfx.Font;
-import net.matilhabits.projectpeace.gfx.Screen;
 import net.matilhabits.projectpeace.scenes.Scene;
-import net.matilhabits.projectpeace.sound.SoundEffect;
+import net.matilhabits.starlite.audio.Audio;
+import net.matilhabits.starlite.display.Color;
+import net.matilhabits.starlite.display.Display;
+import net.matilhabits.starlite.display.Font;
 
 public class Dialog {
 	private Scene parent;
@@ -63,12 +63,12 @@ public class Dialog {
 		if (this.finished) {
 			this.parent.setDialog(this.nextDialog);
 			wasHit = true;
-			SoundEffect.select.play();
+			Audio.select.play();
 		}
 		return wasHit;
 	}
 	
-	public void render(Screen screen) {
+	public void render(Display screen) {
 		this.x = screen.xOffset;
 		for (int i = 0; i < 32; i++) {
 			for (int j = 0; j < 3; j++) {

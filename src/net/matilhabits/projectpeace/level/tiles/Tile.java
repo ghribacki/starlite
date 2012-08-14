@@ -1,8 +1,8 @@
 package net.matilhabits.projectpeace.level.tiles;
 
-import net.matilhabits.projectpeace.gfx.Color;
-import net.matilhabits.projectpeace.gfx.Screen;
 import net.matilhabits.projectpeace.level.Level;
+import net.matilhabits.starlite.display.Color;
+import net.matilhabits.starlite.display.Display;
 
 public abstract class Tile {
 	public static Tile[] tiles = new Tile[5];
@@ -36,6 +36,6 @@ public abstract class Tile {
 		Tile.tiles[id] = this;
 	}
 	
-	public abstract void render(Screen screen, Level level, int x, int y);
+	public abstract void render(Display screen, Level level, int x, int y);
 
 }

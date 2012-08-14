@@ -1,4 +1,4 @@
-package net.matilhabits.projectpeace.gfx;
+package net.matilhabits.starlite.display;
 
 public class Font {
 	private static String chars = "" + //
@@ -6,7 +6,7 @@ public class Font {
 			"0123456789.,!?'\"-+=/\\%()<>:;     " + //
 			"";
 	
-	public static void draw(String msg, Screen screen, int x, int y, int col) {
+	public static void draw(String msg, Display screen, int x, int y, int col) {
 		msg = msg.toUpperCase();
 		for (int i = 0; i < msg.length(); i++) {
 			int ix = chars.indexOf(msg.charAt(i));
@@ -16,7 +16,7 @@ public class Font {
 		}
 	}
 	
-	public static void renderFrame(Screen screen, String title, int x0, int y0, int x1, int y1) {
+	public static void renderFrame(Display screen, String title, int x0, int y0, int x1, int y1) {
 		// TODO (canceled) Render a frame for text! AKA dialog box.
 	}
 }

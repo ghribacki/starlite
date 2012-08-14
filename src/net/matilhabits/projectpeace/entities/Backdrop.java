@@ -1,7 +1,7 @@
 package net.matilhabits.projectpeace.entities;
 
-import net.matilhabits.projectpeace.gfx.Screen;
 import net.matilhabits.projectpeace.level.Level;
+import net.matilhabits.starlite.display.Display;
 
 public class Backdrop extends Entity {
 	private int sprite;
@@ -19,7 +19,7 @@ public class Backdrop extends Entity {
 		this.color = color;
 	}
 
-	public void render(Screen screen) {		
+	public void render(Display screen) {		
 		for (int x = 0; x < this.width; x++) {
 			for (int y = 0; y < this.height; y++) {
 				screen.render(this.x + x * 8, this.y + y * 8, this.sprite + x + (y * 32), this.color, this.flip);

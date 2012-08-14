@@ -1,13 +1,13 @@
 package net.matilhabits.projectpeace.scenes;
 
-import net.matilhabits.projectpeace.Game;
 import net.matilhabits.projectpeace.GameTitle;
-import net.matilhabits.projectpeace.InputHandler;
-import net.matilhabits.projectpeace.gfx.Screen;
-import net.matilhabits.projectpeace.sound.SoundEffect;
+import net.matilhabits.starlite.Game;
+import net.matilhabits.starlite.audio.Audio;
+import net.matilhabits.starlite.display.Display;
+import net.matilhabits.starlite.input.Input;
 
 public class TitleScene extends MenuScene {
-	public TitleScene(Game game, InputHandler input) {
+	public TitleScene(Game game, Input input) {
 		super(game, input);
 	}
 	
@@ -30,11 +30,11 @@ public class TitleScene extends MenuScene {
 					break;
 				default:
 			}
-			SoundEffect.enter.play();
+			Audio.enter.play();
 		}
 	}
 
-	public void render(Screen screen) {
+	public void render(Display screen) {
 		screen.clear(1);
 		GameTitle.render(screen, 80, 4);
 		this.renderMenu(screen, 78, 70);

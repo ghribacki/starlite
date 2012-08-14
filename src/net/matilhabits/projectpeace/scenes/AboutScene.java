@@ -1,30 +1,30 @@
 package net.matilhabits.projectpeace.scenes;
 
-import net.matilhabits.projectpeace.Game;
 import net.matilhabits.projectpeace.GameTitle;
-import net.matilhabits.projectpeace.InputHandler;
-import net.matilhabits.projectpeace.gfx.Color;
-import net.matilhabits.projectpeace.gfx.Font;
-import net.matilhabits.projectpeace.gfx.Screen;
-import net.matilhabits.projectpeace.sound.SoundEffect;
+import net.matilhabits.starlite.Game;
+import net.matilhabits.starlite.audio.Audio;
+import net.matilhabits.starlite.display.Color;
+import net.matilhabits.starlite.display.Display;
+import net.matilhabits.starlite.display.Font;
+import net.matilhabits.starlite.input.Input;
 
 public class AboutScene extends Scene {
 	private MenuScene parent;
 
-	public AboutScene(Game game, InputHandler input, MenuScene parent) {
+	public AboutScene(Game game, Input input, MenuScene parent) {
 		super(game, input);
 		this.parent = parent;
 	}
 
 	public void update() {
 		if (this.input.menu.clicked) {
-			SoundEffect.enter.play();
+			Audio.enter.play();
 			this.game.setScene(this.parent);
 		}
 		
 	}
 
-	public void render(Screen screen) {
+	public void render(Display screen) {
 		screen.clear(1);
 		
 		GameTitle.render(screen, 80, 4);

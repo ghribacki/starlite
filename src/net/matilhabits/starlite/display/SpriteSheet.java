@@ -1,4 +1,4 @@
-package net.matilhabits.projectpeace.gfx;
+package net.matilhabits.starlite.display;
 
 import java.awt.image.BufferedImage;
 
